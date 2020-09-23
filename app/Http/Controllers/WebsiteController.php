@@ -2,9 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class WebsiteController extends Controller
 {
-    //
+    /**
+     * @return View
+     */
+    public function album(): View
+    {
+        return view('album');
+    }
 }

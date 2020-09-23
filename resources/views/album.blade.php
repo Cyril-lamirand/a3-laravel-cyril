@@ -6,13 +6,21 @@
     <body>
         @include('partials.nav')
 
-        <div class="container" style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap;">
+        <div class="container" style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; padding-top: 60px;">
 
-            @foreach($posts as $post)
+            @if (isset($posts))
 
-                @include('partials.card', ['post' => $post])
+                @foreach($posts as $post)
 
-            @endforeach
+                    @include('partials.card', ['post' => $post])
+
+                @endforeach
+
+            @else
+
+                <h2>No post(s) !</h2>
+
+            @endif
 
         </div>
 
