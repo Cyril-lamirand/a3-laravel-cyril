@@ -6,11 +6,15 @@
     <body>
         @include('partials.nav')
 
-        @foreach($posts as $post)
+        <div class="container" style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap;">
 
-            @include('partials.card', ['post' => $post])
+            @foreach($posts as $post)
 
-        @endforeach
+                @include('partials.card', ['post' => $post])
+
+            @endforeach
+
+        </div>
 
         @include('partials.footer')
     </body>

@@ -2,7 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\Post;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 
 class PostsTableSeeder extends Seeder
 {
@@ -14,5 +17,11 @@ class PostsTableSeeder extends Seeder
     public function run()
     {
         //
+        Schema::disableForeignKeyConstraints(); // !!!!
+
+        DB::table('posts')->truncate();
+        Post::factory()->times(20)->create();
+
+        Schema::enableForeignKeyConstraints(); // !!!!
     }
 }

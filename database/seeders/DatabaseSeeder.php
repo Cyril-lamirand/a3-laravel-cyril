@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\User;
+use App\Models\Category;
+use App\Models\Post;
 
 class DatabaseSeeder extends Seeder
 {
@@ -17,5 +19,16 @@ class DatabaseSeeder extends Seeder
         User::unguard();
         $this->call(UsersTableSeeder::class);
         User::reguard();
+
+        Category::unguard();
+        $this->call(CategoriesTableSeeder::class);
+        Category::reguard();
+
+        Post::unguard();
+        $this->call(PostsTableSeeder::class);
+        Post::reguard();
+
+
+
     }
 }

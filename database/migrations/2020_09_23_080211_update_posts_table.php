@@ -20,9 +20,12 @@ class UpdatePostsTable extends Migration
             $table->text('description');
             $table->datetime('publication_date');
             $table->boolean('published');
-            $table->foreignId('user_id')->constrained();
-            //$table->unsignedBigInteger('user_id');
-            //$table->foreign('user_id')->references('id')->on('users');
+            //$table->foreignId('user_id')->constrained();
+            //$table->foreignId('category_id')->constrained();
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->unsignedBigInteger('category_id');
+            $table->foreign('category_id')->references('id')->on('categories');
         });
     }
 

@@ -18,12 +18,6 @@ class UsersTableSeeder extends Seeder
     {
         Schema::disableForeignKeyConstraints(); // !!!!
 
-        /* DB::table('users')->insert([
-            'name' => Str::random(10),
-            'email' => Str::random(10).'@gmail.com',
-            'password' => Str::bcrypt('secret')
-        ]); */
-
         DB::table('users')->truncate();
         User::factory()->times(50)->create();
 
