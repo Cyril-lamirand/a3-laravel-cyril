@@ -22,8 +22,19 @@ class PostFactory extends Factory
      */
     public function definition()
     {
+        $userId     = DB::table('users')->select('id')->inRandomOrder()->limit(1)->value('id');
+        $categoryId = DB::table('categories')->select('id')->inRandomOrder()->limit(1)->value('id');
+
         return [
-            //
+            'title'            => $this->faker->text(15),
+            'sub_title'        => $this->faker->text(15),
+            'description'      => $this->faker->text(200),
+            'publication_date' => $this->faker->dateTime,
+            'published'        => false,
+            'created_at'       => $this->faker->dateTime,
+            'updated_at'       => $this->faker->dateTime,
+            'user_id'          => $userId,
+            'category_id'      => $categoryId
         ];
     }
 }
