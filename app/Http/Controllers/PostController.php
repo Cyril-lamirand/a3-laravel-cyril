@@ -35,6 +35,8 @@ class PostController extends Controller
     public function create()
     {
         //
+        $users = DB::table('users')->pluck('name', 'id');
+        return view ('post.create', compact('users'));
     }
 
     /**
